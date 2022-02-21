@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    android:id="@+id/card_bottom"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_10sdp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    app:cardCornerRadius="@dimen/_35sdp"
+    app:cardElevation="@dimen/_5sdp"
+    app:behavior_hideable = "false"
+    app:behavior_peekHeight = "80dp"
+    app:cardUseCompatPadding="true"
+    android:background="@color/black"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_centerHorizontal="true"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="15dp"
+            android:background="@drawable/custom_checkout_button" />
+
+
+        <TextView
+            android:layout_marginTop="@dimen/_20sdp"
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selected Items"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_15sdp"
+            />
+
+        <TextView
+            android:id="@+id/selected_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:text="70.350.000đ"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_15sdp" />
+
+        <TextView
+            android:id="@+id/title1"
+            android:layout_below="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tax"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_15sdp"
+            />
+
+        <TextView
+            android:id="@+id/tax"
+            android:layout_below="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_15sdp"
+            android:text="0đ"
+            android:textColor="@color/black"
+            android:layout_alignParentRight="true"
+            />
+
+        <View
+            android:id="@+id/small_line"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_below="@id/title1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/LightGrey" />
+
+        <TextView
+            android:id="@+id/title2"
+            android:layout_below="@id/small_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subtotal"
+            android:textSize="@dimen/_23sdp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/totalPrice"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:layout_below="@id/small_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="@dimen/_15sdp"
+            android:textColor="@color/black"
+            android:layout_alignParentRight="true"
+            />
+
+        <Button
+            android:background="@drawable/custom_checkout_button"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/title2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:text="Checkout"
+            android:textColor="@color/white"
+            android:layout_marginBottom="@dimen/_30sdp"
+            />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

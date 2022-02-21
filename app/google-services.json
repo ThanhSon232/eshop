@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "969723395259",
+    "project_id": "milkita-40da8",
+    "storage_bucket": "milkita-40da8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:969723395259:android:d9b26180a0ece43d753d9e",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "969723395259-obupbg3k1nnjha028nu317013q7tshcd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCF3Uy9Qf_M0Tqlk6Hrj7J5YAsmm4NUWoY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "969723395259-obupbg3k1nnjha028nu317013q7tshcd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

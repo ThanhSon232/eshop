@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="roundLeftCorner" parent="">
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerSizeBottomLeft">@dimen/_40sdp</item>
+<!--        <item name="color">@color/red</item>-->
+    </style>
+
+
+</resources>

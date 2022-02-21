@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="wrap_content" android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/homeFragment"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <include
+            android:id="@+id/appbar"
+            layout="@layout/toolbar" />
+
+        <EditText
+            android:id="@+id/search_bar"
+            android:layout_below="@+id/appbar"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_width="@dimen/_250sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:inputType="text"
+            android:hint="Search"
+            android:elevation="10dp"
+            android:background="@drawable/custominput"
+            android:drawableLeft="@drawable/ic_search"
+            android:drawablePadding="10dp"
+            android:paddingLeft="@dimen/_10sdp"
+            />
+
+        <ImageButton
+            android:id="@+id/cart"
+            android:layout_width="15dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appbar"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:layout_toRightOf="@+id/search_bar"
+            android:background="@null"
+            android:src="@drawable/ic_cart" />
+
+        <com.denzcoskun.imageslider.ImageSlider
+            android:id="@+id/slider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:layout_below="@id/search_bar"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            app:auto_cycle="true"
+            app:corner_radius="20"
+            app:period="3000"
+            app:placeholder="@color/black"
+            android:elevation="@dimen/_10sdp"
+
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/category_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/slider"
+            android:layout_marginTop="@dimen/_10sdp"
+            />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@id/category_list"
+            android:id="@+id/rcv_product"
+            android:layout_marginBottom="@dimen/_40sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+</ScrollView>
