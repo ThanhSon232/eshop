@@ -73,11 +73,11 @@
 
         <View
             android:id="@+id/small_line"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:layout_below="@id/title1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
+            android:layout_below="@id/title1"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
             android:background="@color/LightGrey" />
 
         <TextView

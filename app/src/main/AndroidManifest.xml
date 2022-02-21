@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name="com.example.activites.allProductActivity"
+            android:exported="false" />
+        <activity
             android:name="com.example.activites.cartActivity"
             android:exported="false" />
         <activity

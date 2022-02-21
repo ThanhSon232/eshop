@@ -17,15 +17,17 @@
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.21302083333333333" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/all_items.xml" value="0.2004730224609375" />
         <entry key="app/src/main/res/layout/bestselling.xml" value="0.335" />
         <entry key="app/src/main/res/layout/cardexplore.xml" value="0.2904220581054688" />
         <entry key="app/src/main/res/layout/cart.xml" value="0.18345336914062502" />
-        <entry key="app/src/main/res/layout/cart_item.xml" value="0.18345336914062502" />
-        <entry key="app/src/main/res/layout/detailpage.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/cart_item.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/detailpage.xml" value="0.7636154174804688" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.42874450683593757" />
         <entry key="app/src/main/res/layout/homeActivity.xml" value="0.1" />
         <entry key="app/src/main/res/layout/homeactivity.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/item_category.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_category.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/items.xml" value="0.1" />
         <entry key="app/src/main/res/layout/layout_bottom_sheet.xml" value="0.1" />
         <entry key="app/src/main/res/layout/layout_content_cart.xml" value="0.18345336914062502" />
         <entry key="app/src/main/res/layout/login.xml" value="0.23676147460937502" />
@@ -48,7 +50,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.1" />
+        <option name="scale" value="0.2004730224609375" />
       </ProjectState>
     </option>
   </component>

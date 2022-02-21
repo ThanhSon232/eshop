@@ -60,7 +60,7 @@ public class detailActivity extends AppCompatActivity implements View.OnClickLis
         firebaseFirestore = FirebaseFirestore.getInstance();
         Picasso.get().load(bundle.get("image").toString()).into(imageView);
         name.setText(bundle.get("name").toString());
-        price.setText(bundle.get("price").toString() + "VND");
+        price.setText(bundle.get("price").toString() + "đ");
         description.setText(bundle.get("description").toString());
         ratingBar.setRating(Float.valueOf(bundle.get("star").toString()));
         backButton.setOnClickListener(new View.OnClickListener() {

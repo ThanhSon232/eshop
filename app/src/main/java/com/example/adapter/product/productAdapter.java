@@ -43,7 +43,7 @@ public class productAdapter extends RecyclerView.Adapter<productAdapter.productV
 
         Picasso.get().load(product.getImage().toString()).into(holder.image);
         holder.name.setText(product.getName());
-        holder.price.setText(product.getPrice());
+        holder.price.setText(product.getPrice() +"đ");
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
