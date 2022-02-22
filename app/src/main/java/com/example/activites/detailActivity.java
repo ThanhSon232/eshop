@@ -14,10 +14,13 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.denzcoskun.imageslider.ImageSlider;
+import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.myapplication.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.slider.Slider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -26,6 +29,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -33,7 +37,7 @@ public class detailActivity extends AppCompatActivity implements View.OnClickLis
     ImageButton backButton;
     ImageButton cart;
     Bundle bundle;
-    ImageView imageView;
+    ImageSlider slider;
     TextView name;
     TextView price;
     TextView description;
@@ -41,13 +45,15 @@ public class detailActivity extends AppCompatActivity implements View.OnClickLis
     Button addCart;
     FirebaseAuth mAuth;
     FirebaseFirestore firebaseFirestore;
+    ArrayList<String> image = new ArrayList<>();
+    List<SlideModel> slideModelList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detailpage);
         backButton = (ImageButton) findViewById(R.id.previous);
         bundle = getIntent().getExtras();
-        imageView = findViewById(R.id.detailImage);
+        slider = findViewById(R.id.slider);
         name = findViewById(R.id.detailName);
         price = findViewById(R.id.detailPrice);
         description = findViewById(R.id.detailDescription);
@@ -58,7 +64,6 @@ public class detailActivity extends AppCompatActivity implements View.OnClickLis
         addCart.setOnClickListener(this);
         mAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
-        Picasso.get().load(bundle.get("image").toString()).into(imageView);
         name.setText(bundle.get("name").toString());
         price.setText(bundle.get("price").toString() + "đ");
         description.setText(bundle.get("description").toString());
@@ -69,6 +74,15 @@ public class detailActivity extends AppCompatActivity implements View.OnClickLis
                 detailActivity.super.onBackPressed();
             }
         });
+        getData();
+    }
+
+    void getData(){
+        image = (ArrayList<String>) bundle.getSerializable("image");
+        for(String s : image){
+            slideModelList.add(new SlideModel(s));
+        }
+        slider.setImageList(slideModelList,false);
     }
 
 
@@ -85,7 +99,7 @@ public class detailActivity extends AppCompatActivity implements View.OnClickLis
                 Map<String,Object> data = new HashMap<>();
                 data.put("name",bundle.get("name").toString());
                 data.put("price",bundle.get("price").toString());
-                data.put("image",bundle.get("image").toString());
+                data.put("image",bundle.get("image"));
                 data.put("description",bundle.get("description").toString());
                 data.put("star",bundle.get("star"));
                 data.put("quantity",1);

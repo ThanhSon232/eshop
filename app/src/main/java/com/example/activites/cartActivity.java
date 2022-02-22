@@ -74,7 +74,7 @@ public class cartActivity extends AppCompatActivity implements View.OnClickListe
                 public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                         arrayList.clear();
                         for (DocumentSnapshot document : value.getDocuments()) {
-                            arrayList.add(new product(document.getId(), document.getData().get("name").toString(), document.getData().get("image").toString(), document.getData().get("description").toString(), document.getData().get("price").toString(), Float.valueOf(document.getData().get("star").toString()), Integer.valueOf(document.getData().get("quantity").toString()), Boolean.valueOf(document.getData().get("check").toString())));
+                            arrayList.add(new product(document.getId(), document.getData().get("name").toString(), (ArrayList<String>) document.getData().get("image"), document.getData().get("description").toString(), document.getData().get("price").toString(), Float.valueOf(document.getData().get("star").toString()), Integer.valueOf(document.getData().get("quantity").toString()), Boolean.valueOf(document.getData().get("check").toString()),document.getData().get("category").toString()));
                         }
                         cartAdapter.notifyDataSetChanged();
                         int total = 0;

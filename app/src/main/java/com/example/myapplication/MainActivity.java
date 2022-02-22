@@ -41,7 +41,9 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 //public class MainActivity extends AppCompatActivity {
 //    private Fragment homeFragment = new HomeFragment();
@@ -183,43 +185,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imageSlider.setImageList(slideModelList,false);
 
 
-        db.collection("/products/7qXTNSVyB3G4IazhJ0Hm/living-room")
+        db.collection("/products")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
-                            List<product> productList = new ArrayList<product>();
-
+                            Map<String,List<product>> hashMap = new HashMap<>();
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                productList.add(new product(document.getId(),document.getData().get("name").toString(), document.getData().get("image").toString(), document.getData().get("description").toString(), document.getData().get("price").toString(), Float.valueOf(document.getData().get("star").toString()), null,null));
+                                String key = document.getData().get("category").toString();
+                                if(hashMap.containsKey(key)){
+                                    hashMap.get(key).add(new product(document.getId(),document.getData().get("name").toString(), (ArrayList<String>) document.getData().get("image"), document.getData().get("description").toString(), document.getData().get("price").toString(), Float.valueOf(document.getData().get("star").toString()), null,null,document.getData().get("category").toString()));
+                                }
+                                else{
+                                    List<product> productList = new ArrayList<>();
+                                    productList.add(new product(document.getId(),document.getData().get("name").toString(), (ArrayList<String>) document.getData().get("image"), document.getData().get("description").toString(), document.getData().get("price").toString(), Float.valueOf(document.getData().get("star").toString()), null,null,document.getData().get("category").toString()));
+                                    hashMap.put(key,productList);
+                                }
                             }
-                            sectionList.add(new category(productList, "Living room"));
+
+
+                            for(Map.Entry<String,List<product>> entry : hashMap.entrySet()){
+                                sectionList.add(new category(entry.getValue(),entry.getKey()));
+                            }
                             sectionAdapter.notifyDataSetChanged();
+
                         } else {
                             Log.w(String.valueOf(this), "Error getting documents.", task.getException());
                         }
                     }
                 });
 
-        db.collection("/products/7qXTNSVyB3G4IazhJ0Hm/dining-room")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            List<product> productList = new ArrayList<product>();
 
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                productList.add(new product(document.getId(),document.getData().get("name").toString(), document.getData().get("image").toString(), document.getData().get("description").toString(), document.getData().get("price").toString(), Float.valueOf(document.getData().get("star").toString()), null,null));
-                            }
-                            sectionList.add(new category(productList, "Dining room"));
-                            sectionAdapter.notifyDataSetChanged();
-                        } else {
-                            Log.w(String.valueOf(this), "Error getting documents.", task.getException());
-                        }
-                    }
-                });
 
     }
 

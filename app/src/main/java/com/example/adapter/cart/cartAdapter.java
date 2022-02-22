@@ -49,7 +49,7 @@ public class cartAdapter extends ArrayAdapter<product>  {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         String name = getItem(position).getName();
         String price = getItem(position).getPrice();
-        String image = getItem(position).getImage();
+        String image = getItem(position).getImage().get(0);
         String quantity = getItem(position).getQuantity().toString();
         String id = getItem(position).getId();
         Boolean check = getItem(position).getCheck();

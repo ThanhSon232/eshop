@@ -10,14 +10,19 @@
         android:layout_height="wrap_content"
         android:background="@null"
         >
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/detailImage"
+
+        <com.denzcoskun.imageslider.ImageSlider
+            android:id="@+id/slider"
+            android:layout_marginTop="@dimen/_50sdp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/sample"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true"
-            app:shapeAppearanceOverlay="@style/roundLeftCorner"
+            android:layout_height="@dimen/_250sdp"
+            android:layout_below="@id/search_bar"
+            android:layout_marginBottom="@dimen/_10sdp"
+            app:auto_cycle="true"
+            app:corner_radius="20"
+            app:period="3000"
+            app:placeholder="@color/black"
+            android:elevation="@dimen/_10sdp"
             />
 
         <androidx.appcompat.widget.Toolbar

@@ -17,6 +17,7 @@ import com.example.activites.detailActivity;
 import com.example.myapplication.R;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class productAdapter extends RecyclerView.Adapter<productAdapter.productViewHolder>{
@@ -41,7 +42,7 @@ public class productAdapter extends RecyclerView.Adapter<productAdapter.productV
         product product = productlist.get(position);
         if(product == null) return;
 
-        Picasso.get().load(product.getImage().toString()).into(holder.image);
+        Picasso.get().load(product.getImage().get(0)).into(holder.image);
         holder.name.setText(product.getName());
         holder.price.setText(product.getPrice() +"đ");
         holder.cardView.setOnClickListener(new View.OnClickListener() {
@@ -52,9 +53,10 @@ public class productAdapter extends RecyclerView.Adapter<productAdapter.productV
                 bundle.putSerializable("id",product.getId());
                 bundle.putSerializable("name",product.getName());
                 bundle.putSerializable("price",product.getPrice());
-                bundle.putSerializable("image",product.getImage());
+                bundle.putSerializable("image", product.getImage());
                 bundle.putSerializable("description",product.getDescription());
                 bundle.putSerializable("star",product.getStar());
+                bundle.putSerializable("category",product.getCategory());
                 intent.putExtras(bundle);
                 context.startActivity(intent);
             }
